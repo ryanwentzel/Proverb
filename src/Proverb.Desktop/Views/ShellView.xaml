@@ -16,6 +16,6 @@
         </ResourceDictionary>
     </Window.Resources>
     <DockPanel>
-        <ContentControl x:Name="Document" />
+        <Controls:MetroContentControl x:Name="Document" />
     </DockPanel>
 </Controls:MetroWindow>

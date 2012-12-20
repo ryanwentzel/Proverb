@@ -7,11 +7,25 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
     <DockPanel>
+        <DockPanel DockPanel.Dock="Bottom" Margin="5 0">
+            <DockPanel DockPanel.Dock="Right" HorizontalAlignment="Right">
+                <Label>Font size</Label>
+                <Slider DockPanel.Dock="Top"
+                    Width="150"
+                    Minimum="10"
+                    Maximum="32"
+                    IsSnapToTickEnabled="True"
+                    TickFrequency="1"
+                    Value="{Binding FontSize}" />
+            </DockPanel>
+        </DockPanel>
+        
         <avalon:TextEditor
-            DockPanel.Dock="Top"
-            Background="LightGray"
+            Background="White"
             FontFamily="Consolas"
-            FontSize="14"
+            FontSize="{Binding FontSize}"
+            Padding="5"
             WordWrap="True" />
+       
     </DockPanel>
 </UserControl>
