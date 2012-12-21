@@ -8,19 +8,19 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
     <UserControl.Resources>
-        <SolidColorBrush x:Key="GrayBrush" Color="#F2F2F2" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/FlatButton.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </UserControl.Resources>
     <DockPanel>
-        <DockPanel.Resources>
-            <Style TargetType="{x:Type TextBlock}">
-                <Setter Property="Foreground" Value="{StaticResource GrayBrush}" />
-            </Style>
-        </DockPanel.Resources>
-        
-        <Menu DockPanel.Dock="Top" Background="Transparent">
-            <MenuItem Header="File" Helpers:Text.Uppercase="True" />
-        </Menu>
-        
+        <Button x:Name="Save" 
+                DockPanel.Dock="Top" 
+                Width="75" 
+                Background="Transparent"
+                HorizontalAlignment="Left"
+                Content="SAVE" />
         <DockPanel DockPanel.Dock="Bottom" Margin="5 0">
             <DockPanel DockPanel.Dock="Left" HorizontalAlignment="Left">
                 <TextBlock x:Name="WordCount" 
@@ -28,7 +28,7 @@
                            Text="{Binding Document.WordCount, StringFormat={}{0} words}" />
             </DockPanel>
             <DockPanel DockPanel.Dock="Right" HorizontalAlignment="Right">
-                <Label Foreground="{StaticResource GrayBrush}">Zoom</Label>
+                <Label>Zoom</Label>
                 <Slider DockPanel.Dock="Top"
                     Width="150"
                     Minimum="{Binding MinFontSize}"
@@ -41,7 +41,7 @@
         
         <avalon:TextEditor
             BorderThickness="0"
-            Background="{StaticResource GrayBrush}"
+            Background="Transparent"
             FontFamily="Consolas"
             FontSize="{Binding FontSize}"
             Padding="5"

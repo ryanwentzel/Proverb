@@ -7,6 +7,8 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
                     <local:AppBootstrapper x:Key="bootstrapper" />
+                    <Color x:Key="GrayColor">#F2F2F2</Color>
+                    <SolidColorBrush x:Key="GrayBrush" Color="{StaticResource GrayColor}" />
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
