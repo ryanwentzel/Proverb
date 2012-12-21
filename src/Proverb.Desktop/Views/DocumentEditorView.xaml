@@ -15,7 +15,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <DockPanel>
+    <DockPanel Margin="0 -30">
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">            
             <Button x:Name="New" 
                     Width="75" 
@@ -57,7 +57,7 @@
             Background="Transparent"
             FontFamily="Consolas"
             FontSize="{Binding FontSize}"
-            Padding="5"
+            Padding="20"
             WordWrap="True"
             Document="{Binding Document}"/>
     </DockPanel>
