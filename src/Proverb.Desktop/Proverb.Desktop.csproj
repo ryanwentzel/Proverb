@@ -83,9 +83,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Ensure.cs" />
-    <Compile Include="Helpers\ApplicationInfo.cs" />
-    <Compile Include="Helpers\HelpersModule.cs" />
-    <Compile Include="Helpers\IApplicationInfo.cs" />
+    <Compile Include="Infrastructure\ApplicationInfo.cs" />
+    <Compile Include="Infrastructure\InfrastructureModule.cs" />
+    <Compile Include="Infrastructure\IApplicationInfo.cs" />
     <Compile Include="Helpers\Text.cs" />
     <Compile Include="ViewModels\DocumentEditorViewModel.cs" />
     <Compile Include="ViewModels\DocumentViewModel.cs" />

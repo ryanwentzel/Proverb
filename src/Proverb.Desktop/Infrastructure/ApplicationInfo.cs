@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Proverb.Helpers
+namespace Proverb.Infrastructure
 {
     public sealed class ApplicationInfo : IApplicationInfo
     {

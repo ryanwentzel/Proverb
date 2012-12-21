@@ -1,6 +1,6 @@
 ﻿
 using Caliburn.Micro;
-using Proverb.Helpers;
+using Proverb.Infrastructure;
 namespace Proverb.ViewModels
 {
     public class ShellViewModel : PropertyChangedBase, IHaveDisplayName

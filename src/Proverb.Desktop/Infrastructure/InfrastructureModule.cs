@@ -1,8 +1,8 @@
 ﻿using Ninject.Modules;
 
-namespace Proverb.Helpers
+namespace Proverb.Infrastructure
 {
-    public sealed class HelpersModule : NinjectModule
+    public sealed class InfrastructureModule : NinjectModule
     {
         public override void Load()
         {

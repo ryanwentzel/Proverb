@@ -1,5 +1,5 @@
 ﻿
-namespace Proverb.Helpers
+namespace Proverb.Infrastructure
 {
     public interface IApplicationInfo
     {
