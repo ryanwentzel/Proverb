@@ -40,15 +40,13 @@ namespace Proverb.Models
         public async Task<IDocument> OpenDocument(string path)
         {
             var reader = _fileReaderFactory.Create(path);
-            string content = await reader.ReadToEndAsync().ContinueWith<string>(t => 
+            return await reader.ReadToEndAsync().ContinueWith<IDocument>(t => 
             {
                 reader.Dispose();
                 t.PropagateExceptions();
 
-                return t.Result;
+                return new Document(path, t.Result);
             });
-
-            return new Document(path, content);
         }
     }
 }
