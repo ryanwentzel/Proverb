@@ -9,6 +9,7 @@ namespace Proverb.Infrastructure
             Bind<IApplicationInfo>().To<ApplicationInfo>().InSingletonScope();
             Bind<IDialogService>().To<DialogService>().InSingletonScope();
             Bind<IFileWriterFactory>().To<FileWriterFactory>().InSingletonScope();
+            Bind<IFileReaderFactory>().To<FileReaderFactory>().InSingletonScope();
         }
     }
 }

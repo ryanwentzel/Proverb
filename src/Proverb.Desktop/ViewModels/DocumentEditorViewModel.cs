@@ -38,7 +38,19 @@ namespace Proverb.ViewModels
             }
         }
 
-        public ITextSource Document { get; private set; }
+        private ITextSource _document;
+        public ITextSource Document
+        {
+            get
+            {
+                return _document;
+            }
+            set
+            {
+                _document = value;
+                NotifyOfPropertyChange(() => Document);
+            }
+        }
 
         public DocumentEditorViewModel(IDocumentEditor documentEditor)
         {
@@ -54,6 +66,18 @@ namespace Proverb.ViewModels
         {
             _documentEditor.Document.Content = Document.CreateSnapshot().Text;
             var document = await _documentEditor.Save();
+        }
+
+        public async void New()
+        {
+            await _documentEditor.New();
+            Document = new TextDocument();
+        }
+
+        public async void Open()
+        {
+            await _documentEditor.Open();
+            Document = new TextDocument(_documentEditor.Document.Content.ToCharArray());
         }
     }
 }

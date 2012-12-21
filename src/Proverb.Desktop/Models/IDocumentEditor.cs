@@ -8,7 +8,7 @@ namespace Proverb.Models
 
         Task<IDocument> New();
 
-        Task<IDocument> Open(string path);
+        Task<IDocument> Open();
 
         Task<IDocument> Save();
 

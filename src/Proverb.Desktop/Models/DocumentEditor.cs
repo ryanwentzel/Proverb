@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO.Abstractions;
+﻿using System.IO.Abstractions;
 using System.Linq;
 using System.Threading.Tasks;
 using Proverb.Extensions;
@@ -63,13 +62,18 @@ namespace Proverb.Models
 
         public async Task<IDocument> New()
         {
-            Document = await new Task<IDocument>(() => _documentFactory.NewDocument());
+            Document = await Task.FromResult(_documentFactory.NewDocument());
             return Document;
         }
 
-        public Task<IDocument> Open(string path)
+        public async Task<IDocument> Open()
         {
-            throw new NotImplementedException();
+            var path = _dialogService.GetFileOpenPath("Open", FileExtensions.Filter);
+
+            if (string.IsNullOrEmpty(path)) return await Task.FromResult(Document);
+
+            Document = await _documentFactory.OpenDocument(path);
+            return Document;
         }
     }
 }

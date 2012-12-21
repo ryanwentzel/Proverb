@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO.Abstractions;
+﻿using System.IO.Abstractions;
 using Microsoft.Win32;
 
 namespace Proverb.Infrastructure
@@ -17,7 +16,17 @@ namespace Proverb.Infrastructure
 
         public string GetFileOpenPath(string title, string filter)
         {
-            throw new NotImplementedException();
+            var dialog = new OpenFileDialog
+            {
+                Title = title,
+                Filter = filter,
+                Multiselect = false,
+                CheckFileExists = true
+            };
+
+            string fileName = dialog.ShowDialog().Value ? dialog.FileName : "";
+
+            return fileName;
         }
 
         public string GetFileSavePath(string title, string defaultExtension, string filter)

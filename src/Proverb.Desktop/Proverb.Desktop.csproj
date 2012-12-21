@@ -90,8 +90,10 @@
     <Compile Include="Infrastructure\ApplicationInfo.cs" />
     <Compile Include="Infrastructure\DialogService.cs" />
     <Compile Include="Infrastructure\FileExtensions.cs" />
+    <Compile Include="Infrastructure\FileReaderFactory.cs" />
     <Compile Include="Infrastructure\FileWriterFactory.cs" />
     <Compile Include="Infrastructure\IDialogService.cs" />
+    <Compile Include="Infrastructure\IFileReaderFactory.cs" />
     <Compile Include="Infrastructure\IFileWriterFactory.cs" />
     <Compile Include="Infrastructure\InfrastructureModule.cs" />
     <Compile Include="Infrastructure\IApplicationInfo.cs" />

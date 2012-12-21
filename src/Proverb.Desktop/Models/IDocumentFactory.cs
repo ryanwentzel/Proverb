@@ -7,5 +7,7 @@ namespace Proverb.Models
         IDocument NewDocument();
 
         Task<IDocument> NewDocument(string path, string content);
+
+        Task<IDocument> OpenDocument(string path);
     }
 }
