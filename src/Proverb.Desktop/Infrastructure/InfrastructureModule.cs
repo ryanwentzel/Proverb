@@ -7,6 +7,8 @@ namespace Proverb.Infrastructure
         public override void Load()
         {
             Bind<IApplicationInfo>().To<ApplicationInfo>().InSingletonScope();
+            Bind<IDialogService>().To<DialogService>().InSingletonScope();
+            Bind<IFileWriterFactory>().To<FileWriterFactory>().InSingletonScope();
         }
     }
 }

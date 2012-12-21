@@ -25,7 +25,7 @@
             <DockPanel DockPanel.Dock="Left" HorizontalAlignment="Left">
                 <TextBlock x:Name="WordCount" 
                            VerticalAlignment="Center"
-                           Text="{Binding Document.WordCount, StringFormat={}{0} words}" />
+                           Text="{Binding WordCount, StringFormat={}{0} words}" />
             </DockPanel>
             <DockPanel DockPanel.Dock="Right" HorizontalAlignment="Right">
                 <Label>Zoom</Label>
@@ -46,6 +46,6 @@
             FontSize="{Binding FontSize}"
             Padding="5"
             WordWrap="True"
-            Document="{Binding Document.Document}"/>
+            Document="{Binding Document}"/>
     </DockPanel>
 </UserControl>

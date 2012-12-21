@@ -57,6 +57,9 @@
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Abstractions">
+      <HintPath>..\..\packages\System.IO.Abstractions.1.4.0.37\lib\net35\System.IO.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Caliburn.Micro-Contrib.1.0.2\lib\Net40\System.Windows.Interactivity.dll</HintPath>
@@ -83,14 +86,24 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Ensure.cs" />
+    <Compile Include="Extensions\TaskExtensions.cs" />
     <Compile Include="Infrastructure\ApplicationInfo.cs" />
+    <Compile Include="Infrastructure\DialogService.cs" />
+    <Compile Include="Infrastructure\FileExtensions.cs" />
+    <Compile Include="Infrastructure\FileWriterFactory.cs" />
+    <Compile Include="Infrastructure\IDialogService.cs" />
+    <Compile Include="Infrastructure\IFileWriterFactory.cs" />
     <Compile Include="Infrastructure\InfrastructureModule.cs" />
     <Compile Include="Infrastructure\IApplicationInfo.cs" />
     <Compile Include="Helpers\Text.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Models\DocumentEditor.cs" />
+    <Compile Include="Models\DocumentFactory.cs" />
     <Compile Include="Models\IDocument.cs" />
     <Compile Include="Models\IDocumentEditor.cs" />
+    <Compile Include="Models\IDocumentFactory.cs" />
+    <Compile Include="Models\ModelsModule.cs" />
+    <Compile Include="Models\NewDocument.cs" />
     <Compile Include="ViewModels\DocumentEditorViewModel.cs" />
     <Compile Include="ViewModels\DocumentViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />

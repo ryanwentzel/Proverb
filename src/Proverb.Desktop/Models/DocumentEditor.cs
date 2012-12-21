@@ -1,23 +1,70 @@
 ﻿using System;
+using System.IO.Abstractions;
+using System.Linq;
 using System.Threading.Tasks;
+using Proverb.Extensions;
+using Proverb.Infrastructure;
 
 namespace Proverb.Models
 {
     public class DocumentEditor : IDocumentEditor
     {
-        public IDocument Document
+        private readonly IFileSystem _fileSystem;
+        private readonly IFileWriterFactory _writerFactory;
+        private readonly IDocumentFactory _documentFactory;
+        private readonly IDialogService _dialogService;
+
+        public IDocument Document { get; private set; }
+
+        public DocumentEditor(
+            IDocumentFactory documentFactory, 
+            IFileSystem fileSystem,
+            IFileWriterFactory writerFactory,
+            IDialogService dialogService)
         {
-            get { throw new NotImplementedException(); }
+            Ensure.ArgumentNotNull(documentFactory, "documentFactory");
+            Ensure.ArgumentNotNull(fileSystem, "fileSystem");
+            Ensure.ArgumentNotNull(writerFactory, "writerFactory");
+            Ensure.ArgumentNotNull(dialogService, "dialogService");
+
+            _documentFactory = documentFactory;
+            _fileSystem = fileSystem;
+            _writerFactory = writerFactory;
+            _dialogService = dialogService;
+            Document = _documentFactory.NewDocument();
         }
 
         public Task<IDocument> Save()
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(Document.Path)) return SaveAs();
+
+            var fileInfo = _fileSystem.FileInfo.FromFileName(Document.Path);
+            // TODO: check if file is read-only
+
+            var writer = _writerFactory.Create(Document.Path);
+            return writer.WriteAsync(Document.Content).ContinueWith<IDocument>(t => 
+            {
+                writer.Dispose();
+                t.PropagateExceptions();
+
+                return Document;
+            });
         }
 
-        public Task<IDocument> SaveAs()
+        public async Task<IDocument> SaveAs()
         {
-            throw new NotImplementedException();
+            var path = _dialogService.GetFileSavePath("Save As", FileExtensions.Defaults.First(), FileExtensions.Filter);
+
+            if (string.IsNullOrEmpty(path)) return await Task.FromResult(Document);
+
+            Document = await _documentFactory.NewDocument(path, Document.Content);
+            return Document;
+        }
+
+        public async Task<IDocument> New()
+        {
+            Document = await new Task<IDocument>(() => _documentFactory.NewDocument());
+            return Document;
         }
 
         public Task<IDocument> Open(string path)

@@ -6,6 +6,8 @@ namespace Proverb.Models
     {
         IDocument Document { get; }
 
+        Task<IDocument> New();
+
         Task<IDocument> Open(string path);
 
         Task<IDocument> Save();

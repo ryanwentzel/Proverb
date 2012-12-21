@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using Caliburn.Micro;
-using Caliburn.Micro.Contrib.Results;
+﻿using Caliburn.Micro;
+using ICSharpCode.AvalonEdit.Document;
+using Proverb.Models;
 
 namespace Proverb.ViewModels
 {
@@ -13,7 +12,7 @@ namespace Proverb.ViewModels
 
         private const int MaximumFontSize = 32;
 
-        private bool _isNewDocument;
+        private readonly IDocumentEditor _documentEditor;
 
         public int MinFontSize
         {
@@ -39,34 +38,22 @@ namespace Proverb.ViewModels
             }
         }
 
-        private DocumentViewModel _document;
-        public DocumentViewModel Document
-        {
-            get
-            {
-                return _document;
-            }
-            set
-            {
-                _document = value;
-                NotifyOfPropertyChange(() => Document);
-            }
-        }
+        public ITextSource Document { get; private set; }
 
-        public DocumentEditorViewModel()
+        public DocumentEditorViewModel(IDocumentEditor documentEditor)
         {
+            Ensure.ArgumentNotNull(documentEditor, "documentEditor");
+
+            _documentEditor = documentEditor;
             FontSize = DefaultFontSize;
-            Document = new DocumentViewModel();
-            _isNewDocument = true;
+            _documentEditor.New();
+            Document = new TextDocument();
         }
 
-        public IEnumerable<IResult> Save()
+        public async void Save()
         {
-            yield return new SaveFileResult()
-                .PromptForOverwrite()
-                .FilterFiles(x => x.AddFilter("txt").WithDescription("Text files")
-                                   .AddFilter("md").WithDescription("Markdown files"))
-                .WithFileDo(file => { File.WriteAllText(file, Document.Document.Text); });
+            _documentEditor.Document.Content = Document.CreateSnapshot().Text;
+            var document = await _documentEditor.Save();
         }
     }
 }

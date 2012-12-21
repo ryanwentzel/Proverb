@@ -23,14 +23,15 @@ namespace Proverb.ViewModels
             }
         }
 
-        public ShellViewModel(IApplicationInfo appInfo)
+        public ShellViewModel(IApplicationInfo appInfo, DocumentEditorViewModel documentEditor)
         {
             Ensure.ArgumentNotNull(appInfo, "appInfo");
+            Ensure.ArgumentNotNull(documentEditor, "documentEditor");
 
             _appInfo = appInfo;
 
             DisplayName = _appInfo.Name;
-            Editor = new DocumentEditorViewModel();
+            Editor = documentEditor;
         }
     }
 }

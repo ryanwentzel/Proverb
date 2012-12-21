@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.IO.Abstractions;
 using System.Reflection;
 using Caliburn.Micro;
 using Ninject;
@@ -23,6 +24,7 @@ namespace Proverb
             _kernel = new StandardKernel();
             _kernel.Bind<IWindowManager>().To<WindowManager>().InSingletonScope();
             _kernel.Bind<IEventAggregator>().To<EventAggregator>().InSingletonScope();
+            _kernel.Bind<IFileSystem>().To<FileSystem>().InSingletonScope();
 
             // Other parts of the application configure bindings in modules.
             _kernel.Load(Assembly.GetExecutingAssembly());
