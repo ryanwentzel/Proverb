@@ -1,0 +1,15 @@
+﻿using System.Threading.Tasks;
+
+namespace Proverb.Models
+{
+    public interface IDocumentEditor
+    {
+        IDocument Document { get; }
+
+        Task<IDocument> Open(string path);
+
+        Task<IDocument> Save();
+
+        Task<IDocument> SaveAs();
+    }
+}

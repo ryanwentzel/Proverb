@@ -87,6 +87,10 @@
     <Compile Include="Infrastructure\InfrastructureModule.cs" />
     <Compile Include="Infrastructure\IApplicationInfo.cs" />
     <Compile Include="Helpers\Text.cs" />
+    <Compile Include="Models\Document.cs" />
+    <Compile Include="Models\DocumentEditor.cs" />
+    <Compile Include="Models\IDocument.cs" />
+    <Compile Include="Models\IDocumentEditor.cs" />
     <Compile Include="ViewModels\DocumentEditorViewModel.cs" />
     <Compile Include="ViewModels\DocumentViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
