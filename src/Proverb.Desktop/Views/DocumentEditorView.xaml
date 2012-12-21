@@ -24,6 +24,7 @@
             FontFamily="Consolas"
             FontSize="{Binding FontSize}"
             Padding="5"
-            WordWrap="True"/>
+            WordWrap="True"
+            Document="{Binding Document}"/>
     </DockPanel>
 </UserControl>

@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using ICSharpCode.AvalonEdit.Document;
 
 namespace Proverb.ViewModels
 {
@@ -34,9 +35,28 @@ namespace Proverb.ViewModels
             }
         }
 
+        private TextDocument _document;
+        public TextDocument Document
+        {
+            get
+            {
+                return _document;
+            }
+            set
+            {
+                _document = value;
+                NotifyOfPropertyChange(() => Document);
+            }
+        }
+
         public DocumentEditorViewModel()
         {
             FontSize = DefaultFontSize;
+
+            Document = new TextDocument();
+#if DEBUG
+            Document.TextChanged += (s, e) => System.Diagnostics.Debug.WriteLine(Document.Text);
+#endif
         }
     }
 }
