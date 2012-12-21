@@ -15,8 +15,8 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <DockPanel Margin="0 -30">
-        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">            
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Margin="0 -30 0 30" Orientation="Horizontal">            
             <Button x:Name="New" 
                     Width="75" 
                     Background="Transparent"
