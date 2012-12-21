@@ -78,6 +78,7 @@
     <Compile Include="Helpers\ApplicationInfo.cs" />
     <Compile Include="Helpers\HelpersModule.cs" />
     <Compile Include="Helpers\IApplicationInfo.cs" />
+    <Compile Include="Helpers\Text.cs" />
     <Compile Include="ViewModels\DocumentEditorViewModel.cs" />
     <Compile Include="ViewModels\DocumentViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
