@@ -9,17 +9,17 @@ namespace Proverb.ViewModels
 
         public string DisplayName { get; set; }
 
-        private DocumentViewModel _document;
-        public DocumentViewModel Document
+        private DocumentEditorViewModel _editor;
+        public DocumentEditorViewModel Editor
         {
             get
             {
-                return _document;
+                return _editor;
             }
-            private set
+            set
             {
-                _document = value;
-                NotifyOfPropertyChange(() => Document);
+                _editor = value;
+                NotifyOfPropertyChange(() => Editor);
             }
         }
 
@@ -30,7 +30,7 @@ namespace Proverb.ViewModels
             _appInfo = appInfo;
 
             DisplayName = _appInfo.Name;
-            Document = new DocumentViewModel();
+            Editor = new DocumentEditorViewModel();
         }
     }
 }

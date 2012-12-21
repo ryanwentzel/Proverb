@@ -2,9 +2,23 @@
 
 namespace Proverb.ViewModels
 {
-    public sealed class DocumentViewModel : Screen
+    public class DocumentEditorViewModel : Screen
     {
         private const int DefaultFontSize = 16;
+
+        private const int MinimumFontSize = 10;
+
+        private const int MaximumFontSize = 32;
+
+        public int MinFontSize
+        {
+            get { return MinimumFontSize; }
+        }
+
+        public int MaxFontSize
+        {
+            get { return MaximumFontSize; }
+        }
 
         private int _fontSize;
         public int FontSize
@@ -20,7 +34,7 @@ namespace Proverb.ViewModels
             }
         }
 
-        public DocumentViewModel()
+        public DocumentEditorViewModel()
         {
             FontSize = DefaultFontSize;
         }

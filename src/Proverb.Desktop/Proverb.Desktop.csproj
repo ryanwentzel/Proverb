@@ -78,10 +78,10 @@
     <Compile Include="Helpers\ApplicationInfo.cs" />
     <Compile Include="Helpers\HelpersModule.cs" />
     <Compile Include="Helpers\IApplicationInfo.cs" />
-    <Compile Include="ViewModels\DocumentViewModel.cs" />
+    <Compile Include="ViewModels\DocumentEditorViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
-    <Compile Include="Views\DocumentView.xaml.cs">
-      <DependentUpon>DocumentView.xaml</DependentUpon>
+    <Compile Include="Views\DocumentEditorView.xaml.cs">
+      <DependentUpon>DocumentEditorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
@@ -117,7 +117,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\DocumentView.xaml">
+    <Page Include="Views\DocumentEditorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

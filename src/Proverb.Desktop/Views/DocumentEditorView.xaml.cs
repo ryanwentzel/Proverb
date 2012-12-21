@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Proverb.Views
 {
     /// <summary>
-    /// Interaction logic for DocumentView.xaml
+    /// Interaction logic for DocumentEditorView.xaml
     /// </summary>
-    public partial class DocumentView : UserControl
+    public partial class DocumentEditorView : UserControl
     {
-        public DocumentView()
+        public DocumentEditorView()
         {
             InitializeComponent();
         }
