@@ -22,9 +22,8 @@
                            Text="{Binding WordCount, StringFormat={}{0} words}" />
             </DockPanel>
             <DockPanel DockPanel.Dock="Right" HorizontalAlignment="Right">
-                <Label>Font size</Label>
+                <Label Foreground="{StaticResource GrayBrush}">Zoom</Label>
                 <Slider DockPanel.Dock="Top"
-                    Foreground="{StaticResource GrayBrush}"
                     Width="150"
                     Minimum="{Binding MinFontSize}"
                     Maximum="{Binding MaxFontSize}"
