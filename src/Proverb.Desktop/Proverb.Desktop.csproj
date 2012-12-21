@@ -79,6 +79,7 @@
     <Compile Include="Helpers\HelpersModule.cs" />
     <Compile Include="Helpers\IApplicationInfo.cs" />
     <Compile Include="ViewModels\DocumentEditorViewModel.cs" />
+    <Compile Include="ViewModels\DocumentViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Views\DocumentEditorView.xaml.cs">
       <DependentUpon>DocumentEditorView.xaml</DependentUpon>
