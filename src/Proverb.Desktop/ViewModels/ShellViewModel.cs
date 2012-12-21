@@ -31,7 +31,7 @@ namespace Proverb.ViewModels
             _appInfo = appInfo;
 
             DisplayName = _appInfo.Name;
-            Editor = documentEditor;
+            _editor = documentEditor;
         }
     }
 }

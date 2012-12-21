@@ -1,19 +1,9 @@
-﻿using System.IO.Abstractions;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 
 namespace Proverb.Infrastructure
 {
     public class DialogService : IDialogService
     {
-        private readonly IFileSystem _fileSystem;
-
-        public DialogService(IFileSystem fileSystem)
-        {
-            Ensure.ArgumentNotNull(fileSystem, "fileSystem");
-
-            _fileSystem = fileSystem;
-        }
-
         public string GetFileOpenPath(string title, string filter)
         {
             var dialog = new OpenFileDialog

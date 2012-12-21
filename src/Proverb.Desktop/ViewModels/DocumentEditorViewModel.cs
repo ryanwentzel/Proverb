@@ -57,9 +57,9 @@ namespace Proverb.ViewModels
             Ensure.ArgumentNotNull(documentEditor, "documentEditor");
 
             _documentEditor = documentEditor;
-            FontSize = DefaultFontSize;
+            _fontSize = DefaultFontSize;
             _documentEditor.New();
-            Document = new TextDocument();
+            _document = new TextDocument();
         }
 
         public async void Save()
