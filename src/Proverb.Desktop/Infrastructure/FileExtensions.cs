@@ -12,7 +12,7 @@ namespace Proverb.Infrastructure
             get
             {
                 var wildCards = Defaults.Select(extension => "*" + extension).ToArray();
-                return "Markdown files (" + string.Join(", ", wildCards) + ")|" + string.Join(";", wildCards);
+                return string.Format("Markdown files({0})|{1}", string.Join(", ", wildCards), string.Join(";", wildCards));
             }
         }
     }
