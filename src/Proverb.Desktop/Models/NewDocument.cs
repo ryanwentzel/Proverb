@@ -12,6 +12,7 @@ namespace Proverb.Models
         public NewDocument()
         {
             Title = "new document";
+            Content = "";
         }
     }
 }
