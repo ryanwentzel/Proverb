@@ -18,20 +18,24 @@
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Margin="0 -30 0 30" Orientation="Horizontal">            
             <Button x:Name="New" 
-                    Width="75" 
+                    Width="65" 
                     Background="Transparent"
                     Content="NEW" />
             
             <Button x:Name="Open"
-                    Width="75"
+                    Width="65"
                     Background="Transparent"
                     Content="OPEN" />
             
             <Button x:Name="Save" 
-                Width="75" 
+                Width="65" 
                 Background="Transparent"
-                HorizontalAlignment="Left"
                 Content="SAVE" />
+            
+            <Button x:Name="Export"
+                    Background="Transparent"
+                    HorizontalAlignment="Left"
+                    Content="EXPORT" />
         </StackPanel>
 
         <DockPanel DockPanel.Dock="Bottom" Margin="5 0">

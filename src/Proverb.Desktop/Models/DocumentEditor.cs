@@ -33,15 +33,15 @@ namespace Proverb.Models
             Document = _documentFactory.NewDocument();
         }
 
-        public Task<IDocument> Save()
+        public async Task<IDocument> Save()
         {
-            if (string.IsNullOrEmpty(Document.Path)) return SaveAs();
+            if (string.IsNullOrEmpty(Document.Path)) return await SaveAs();
 
             var fileInfo = _fileSystem.FileInfo.FromFileName(Document.Path);
             // TODO: check if file is read-only
 
             var writer = _writerFactory.Create(Document.Path);
-            return writer.WriteAsync(Document.Content).ContinueWith<IDocument>(t => 
+            return await writer.WriteAsync(Document.Content).ContinueWith<IDocument>(t => 
             {
                 writer.Dispose();
                 t.PropagateExceptions();
@@ -74,6 +74,17 @@ namespace Proverb.Models
 
             Document = await _documentFactory.OpenDocument(path);
             return Document;
+        }
+
+        public async Task<string> Export(IExporter exporter)
+        {
+            Ensure.ArgumentNotNull(exporter, "exporter");
+
+            var path = _dialogService.GetFileSavePath("Export", FileExtensions.Html.First(), FileExtensions.HtmlFilter);
+            if (string.IsNullOrEmpty(path)) return await Task.FromResult("");
+
+            string result = await exporter.Export(Document, path);
+            return result;
         }
     }
 }

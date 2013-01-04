@@ -44,11 +44,17 @@
     <Reference Include="DesignTimeProperties.WPF">
       <HintPath>..\..\packages\Caliburn.Micro-Contrib.1.0.2\lib\Net40\DesignTimeProperties.WPF.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.AvalonEdit">
       <HintPath>..\..\packages\AvalonEdit.4.2.0.8783\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
     </Reference>
     <Reference Include="MahApps.Metro">
       <HintPath>..\..\packages\MahApps.Metro.0.10.0.0\lib\net40\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MarkdownSharp">
+      <HintPath>..\..\packages\MarkdownSharp.1.13.0.0\lib\35\MarkdownSharp.dll</HintPath>
     </Reference>
     <Reference Include="Ninject">
       <HintPath>..\..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
@@ -85,6 +91,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Constants.cs" />
     <Compile Include="Ensure.cs" />
     <Compile Include="Extensions\TaskExtensions.cs" />
     <Compile Include="Infrastructure\ApplicationInfo.cs" />
@@ -92,12 +99,16 @@
     <Compile Include="Infrastructure\FileExtensions.cs" />
     <Compile Include="Infrastructure\FileReaderFactory.cs" />
     <Compile Include="Infrastructure\FileWriterFactory.cs" />
+    <Compile Include="Infrastructure\HtmlExporter.cs" />
     <Compile Include="Infrastructure\IDialogService.cs" />
+    <Compile Include="Infrastructure\IExporter.cs" />
     <Compile Include="Infrastructure\IFileReaderFactory.cs" />
     <Compile Include="Infrastructure\IFileWriterFactory.cs" />
     <Compile Include="Infrastructure\InfrastructureModule.cs" />
     <Compile Include="Infrastructure\IApplicationInfo.cs" />
     <Compile Include="Helpers\Text.cs" />
+    <Compile Include="Infrastructure\IResourceStreamFactory.cs" />
+    <Compile Include="Infrastructure\ResourceStreamFactory.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Models\DocumentEditor.cs" />
     <Compile Include="Models\DocumentFactory.cs" />
@@ -154,6 +165,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="template.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

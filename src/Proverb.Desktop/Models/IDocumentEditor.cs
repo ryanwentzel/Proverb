@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Proverb.Infrastructure;
 
 namespace Proverb.Models
 {
@@ -13,5 +14,7 @@ namespace Proverb.Models
         Task<IDocument> Save();
 
         Task<IDocument> SaveAs();
+
+        Task<string> Export(IExporter exporter);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using ICSharpCode.AvalonEdit.Document;
+using Proverb.Infrastructure;
 using Proverb.Models;
 
 namespace Proverb.ViewModels
@@ -13,6 +14,8 @@ namespace Proverb.ViewModels
         private const int MaximumFontSize = 32;
 
         private readonly IDocumentEditor _documentEditor;
+
+        private readonly IExporter _exporter;
 
         public int MinFontSize
         {
@@ -52,14 +55,16 @@ namespace Proverb.ViewModels
             }
         }
 
-        public DocumentEditorViewModel(IDocumentEditor documentEditor)
+        public DocumentEditorViewModel(IDocumentEditor documentEditor, IExporter exporter)
         {
             Ensure.ArgumentNotNull(documentEditor, "documentEditor");
+            Ensure.ArgumentNotNull(exporter, "exporter");
 
             _documentEditor = documentEditor;
             _fontSize = DefaultFontSize;
             _documentEditor.New();
             _document = new TextDocument();
+            _exporter = exporter;
         }
 
         public async void Save()
@@ -78,6 +83,12 @@ namespace Proverb.ViewModels
         {
             await _documentEditor.Open();
             Document = new TextDocument(_documentEditor.Document.Content.ToCharArray());
+        }
+
+        public async void Export()
+        {
+            _documentEditor.Document.Content = Document.CreateSnapshot().Text;
+            string path = await _documentEditor.Export(_exporter);
         }
     }
 }
