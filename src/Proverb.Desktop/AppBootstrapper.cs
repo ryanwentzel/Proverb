@@ -3,6 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.IO.Abstractions;
 using System.Reflection;
+#if !DEBUG
+using System.Windows;
+#endif
 using Caliburn.Micro;
 using Ninject;
 using Proverb.ViewModels;
