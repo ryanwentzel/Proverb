@@ -90,5 +90,11 @@ namespace Proverb.ViewModels
             _documentEditor.Document.Content = Document.CreateSnapshot().Text;
             string path = await _documentEditor.Export(_exporter);
         }
+
+        public async void Preview()
+        {
+            _documentEditor.Document.Content = Document.CreateSnapshot().Text;
+            await _documentEditor.Preview(_exporter);
+        }
     }
 }

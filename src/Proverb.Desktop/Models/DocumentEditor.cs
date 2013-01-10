@@ -1,4 +1,5 @@
-﻿using System.IO.Abstractions;
+﻿using System.Diagnostics;
+using System.IO.Abstractions;
 using System.Linq;
 using System.Threading.Tasks;
 using Proverb.Extensions;
@@ -8,6 +9,7 @@ namespace Proverb.Models
 {
     public class DocumentEditor : IDocumentEditor
     {
+        private readonly string _tempDirPath;
         private readonly IFileSystem _fileSystem;
         private readonly IFileWriterFactory _writerFactory;
         private readonly IDocumentFactory _documentFactory;
@@ -28,6 +30,7 @@ namespace Proverb.Models
 
             _documentFactory = documentFactory;
             _fileSystem = fileSystem;
+            _tempDirPath = _fileSystem.Path.Combine(_fileSystem.Path.GetTempPath(), "Proverb");
             _writerFactory = writerFactory;
             _dialogService = dialogService;
             Document = _documentFactory.NewDocument();
@@ -85,6 +88,26 @@ namespace Proverb.Models
 
             string result = await exporter.Export(Document, path);
             return result;
+        }
+
+        public async Task<string> Preview(IExporter exporter)
+        {
+            Ensure.ArgumentNotNull(exporter, "exporter");
+
+            EnsureTempDirExists();
+            string path = _fileSystem.Path.Combine(_tempDirPath, "Proverb_preview.html");
+            string result = await exporter.Export(Document, path);
+            Process.Start(result);
+
+            return result;
+        }
+
+        private void EnsureTempDirExists()
+        {
+            if (!_fileSystem.Directory.Exists(_tempDirPath))
+            {
+                _fileSystem.Directory.CreateDirectory(_tempDirPath);
+            }
         }
     }
 }

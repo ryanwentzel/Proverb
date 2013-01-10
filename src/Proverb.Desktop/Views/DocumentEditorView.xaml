@@ -32,6 +32,10 @@
                 Background="Transparent"
                 Content="SAVE" />
             
+            <Button x:Name="Preview"
+                    Background="Transparent"
+                    Content="PREVIEW" />
+            
             <Button x:Name="Export"
                     Background="Transparent"
                     HorizontalAlignment="Left"

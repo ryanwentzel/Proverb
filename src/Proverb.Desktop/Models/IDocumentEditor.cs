@@ -16,5 +16,7 @@ namespace Proverb.Models
         Task<IDocument> SaveAs();
 
         Task<string> Export(IExporter exporter);
+
+        Task<string> Preview(IExporter exporter);
     }
 }
