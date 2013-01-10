@@ -47,9 +47,6 @@
     <Reference Include="DesignTimeProperties.WPF">
       <HintPath>..\..\packages\Caliburn.Micro-Contrib.1.0.2\lib\Net40\DesignTimeProperties.WPF.dll</HintPath>
     </Reference>
-    <Reference Include="HtmlAgilityPack">
-      <HintPath>..\..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
-    </Reference>
     <Reference Include="ICSharpCode.AvalonEdit">
       <HintPath>..\..\packages\AvalonEdit.4.2.0.8783\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
     </Reference>
@@ -62,12 +59,19 @@
     <Reference Include="Ninject">
       <HintPath>..\..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
+    <Reference Include="RazorEngine">
+      <HintPath>..\..\packages\RazorEngine.3.0.8\lib\net40\RazorEngine.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Abstractions">
       <HintPath>..\..\packages\System.IO.Abstractions.1.4.0.37\lib\net35\System.IO.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\RazorEngine.3.0.8\lib\net40\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -99,6 +103,7 @@
     <Compile Include="Extensions\TaskExtensions.cs" />
     <Compile Include="Infrastructure\ApplicationInfo.cs" />
     <Compile Include="Infrastructure\DialogService.cs" />
+    <Compile Include="Infrastructure\HtmlTemplate.cs" />
     <Compile Include="Infrastructure\FileExtensions.cs" />
     <Compile Include="Infrastructure\FileReaderFactory.cs" />
     <Compile Include="Infrastructure\FileWriterFactory.cs" />
@@ -107,11 +112,10 @@
     <Compile Include="Infrastructure\IExporter.cs" />
     <Compile Include="Infrastructure\IFileReaderFactory.cs" />
     <Compile Include="Infrastructure\IFileWriterFactory.cs" />
+    <Compile Include="Infrastructure\IHtmlTemplate.cs" />
     <Compile Include="Infrastructure\InfrastructureModule.cs" />
     <Compile Include="Infrastructure\IApplicationInfo.cs" />
     <Compile Include="Helpers\Text.cs" />
-    <Compile Include="Infrastructure\IResourceStreamFactory.cs" />
-    <Compile Include="Infrastructure\ResourceStreamFactory.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Models\DocumentEditor.cs" />
     <Compile Include="Models\DocumentFactory.cs" />

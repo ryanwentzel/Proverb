@@ -1,23 +1,23 @@
-﻿using System;
+﻿using System.IO;
 using System.Threading.Tasks;
-using HtmlAgilityPack;
 using MarkdownSharp;
 using Proverb.Extensions;
 using Proverb.Models;
+using RazorEngine;
 
 namespace Proverb.Infrastructure
 {
     public sealed class HtmlExporter : IExporter
     {
-        private readonly IResourceStreamFactory _streamFactory;
+        private readonly IHtmlTemplate _template;
 
         private readonly Markdown _markdown;
 
-        public HtmlExporter(IResourceStreamFactory factory)
+        public HtmlExporter(IHtmlTemplate template)
         {
-            Ensure.ArgumentNotNull(factory, "factory");
+            Ensure.ArgumentNotNull(template, "template");
 
-            _streamFactory = factory;
+            _template = template;
             _markdown = new Markdown();
         }
 
@@ -25,17 +25,9 @@ namespace Proverb.Infrastructure
         {
             return await Task.Run(() =>
             {
-                var htmlDocument = new HtmlDocument();
-                using (var stream = _streamFactory.Create(Constants.TemplateFileName))
-                {
-                    htmlDocument.Load(stream);
-                }
-
-                var bodyNode = htmlDocument.DocumentNode.SelectSingleNode("//body");
-                if (bodyNode == null) throw new InvalidOperationException("Body node is null.");
-
-                bodyNode.InnerHtml = _markdown.Transform(document.Content);
-                htmlDocument.Save(path);
+                var html = _markdown.Transform(document.Content);
+                var fileContent = Razor.Parse(_template.Html, new { Content = html });
+                File.WriteAllText(path, fileContent);
             }).ContinueWith<string>(t => 
             {
                 t.PropagateExceptions();

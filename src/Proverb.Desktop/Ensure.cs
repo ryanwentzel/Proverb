@@ -10,5 +10,18 @@ namespace Proverb
 
             throw new ArgumentNullException(parameterName);
         }
+
+        public static void ArgumentNotNullOrEmpty(string value, string parameterName)
+        {
+            if (value == null)
+            {
+                throw new ArgumentNullException(parameterName);
+            }
+
+            if (value.Trim() == "")
+            {
+                throw new ArgumentException("Value cannot be empty.", parameterName);
+            }
+        }
     }
 }

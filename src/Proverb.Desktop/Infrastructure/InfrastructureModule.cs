@@ -1,4 +1,7 @@
 ﻿using Ninject.Modules;
+using RazorEngine;
+using RazorEngine.Configuration;
+using RazorEngine.Templating;
 
 namespace Proverb.Infrastructure
 {
@@ -10,8 +13,17 @@ namespace Proverb.Infrastructure
             Bind<IDialogService>().To<DialogService>().InSingletonScope();
             Bind<IFileWriterFactory>().To<FileWriterFactory>().InSingletonScope();
             Bind<IFileReaderFactory>().To<FileReaderFactory>().InSingletonScope();
-            Bind<IResourceStreamFactory>().To<ResourceStreamFactory>().InSingletonScope();
+            Bind<IHtmlTemplate>().ToMethod(context => HtmlTemplate.FromResource(Constants.TemplateFileName)).InSingletonScope();
             Bind<IExporter>().To<HtmlExporter>().InSingletonScope();
+
+            ConfigureRazorEngine();
+        }
+
+        private void ConfigureRazorEngine()
+        {
+            var config = new FluentTemplateServiceConfiguration(c => c.WithEncoding(RazorEngine.Encoding.Raw));
+            var templateService = new TemplateService(config);
+            Razor.SetTemplateService(templateService);
         }
     }
 }
