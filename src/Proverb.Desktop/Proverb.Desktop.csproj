@@ -108,11 +108,13 @@
     <Compile Include="Infrastructure\FileReaderFactory.cs" />
     <Compile Include="Infrastructure\FileWriterFactory.cs" />
     <Compile Include="Infrastructure\HtmlExporter.cs" />
+    <Compile Include="Infrastructure\RazorHtmlTemplateParser.cs" />
     <Compile Include="Infrastructure\IDialogService.cs" />
     <Compile Include="Infrastructure\IExporter.cs" />
     <Compile Include="Infrastructure\IFileReaderFactory.cs" />
     <Compile Include="Infrastructure\IFileWriterFactory.cs" />
     <Compile Include="Infrastructure\IHtmlTemplate.cs" />
+    <Compile Include="Infrastructure\IHtmlTemplateParser.cs" />
     <Compile Include="Infrastructure\InfrastructureModule.cs" />
     <Compile Include="Infrastructure\IApplicationInfo.cs" />
     <Compile Include="Helpers\Text.cs" />

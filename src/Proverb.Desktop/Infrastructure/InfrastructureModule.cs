@@ -14,6 +14,7 @@ namespace Proverb.Infrastructure
             Bind<IFileWriterFactory>().To<FileWriterFactory>().InSingletonScope();
             Bind<IFileReaderFactory>().To<FileReaderFactory>().InSingletonScope();
             Bind<IHtmlTemplate>().ToMethod(context => HtmlTemplate.FromResource(Constants.TemplateFileName)).InSingletonScope();
+            Bind<IHtmlTemplateParser>().To<RazorHtmlTemplateParser>().InSingletonScope();
             Bind<IExporter>().To<HtmlExporter>().InSingletonScope();
 
             ConfigureRazorEngine();
