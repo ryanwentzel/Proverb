@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
-using MarkdownSharp;
 using Proverb.Extensions;
 using Proverb.Models;
 
@@ -12,8 +11,6 @@ namespace Proverb.Infrastructure
 
         private readonly IHtmlTemplateParser _parser;
 
-        private readonly Markdown _markdown;
-
         public HtmlExporter(IHtmlTemplate template, IHtmlTemplateParser parser)
         {
             Ensure.ArgumentNotNull(template, "template");
@@ -21,7 +18,6 @@ namespace Proverb.Infrastructure
 
             _template = template;
             _parser = parser;
-            _markdown = new Markdown();
         }
 
         public async Task<string> Export(IDocument document, string path)
