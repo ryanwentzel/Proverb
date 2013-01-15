@@ -108,6 +108,7 @@
     <Compile Include="Infrastructure\FileReaderFactory.cs" />
     <Compile Include="Infrastructure\FileWriterFactory.cs" />
     <Compile Include="Infrastructure\HtmlExporter.cs" />
+    <Compile Include="Infrastructure\ProcessEx.cs" />
     <Compile Include="Infrastructure\RazorHtmlTemplateParser.cs" />
     <Compile Include="Infrastructure\IDialogService.cs" />
     <Compile Include="Infrastructure\IExporter.cs" />

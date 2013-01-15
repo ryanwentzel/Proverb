@@ -1,4 +1,5 @@
-﻿using Ninject.Modules;
+﻿using System.Diagnostics;
+using Ninject.Modules;
 using RazorEngine;
 using RazorEngine.Configuration;
 using RazorEngine.Templating;
@@ -18,6 +19,7 @@ namespace Proverb.Infrastructure
             Bind<IExporter>().To<HtmlExporter>().InSingletonScope();
 
             ConfigureRazorEngine();
+            RegisterProcessFactory();
         }
 
         private void ConfigureRazorEngine()
@@ -25,6 +27,11 @@ namespace Proverb.Infrastructure
             var config = new FluentTemplateServiceConfiguration(c => c.WithEncoding(RazorEngine.Encoding.Raw));
             var templateService = new TemplateService(config);
             Razor.SetTemplateService(templateService);
+        }
+
+        private void RegisterProcessFactory()
+        {
+            ProcessEx.RegisterFactory(fileName => Process.Start(fileName));
         }
     }
 }

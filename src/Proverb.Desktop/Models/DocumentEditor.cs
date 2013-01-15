@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.IO.Abstractions;
+﻿using System.IO.Abstractions;
 using System.Linq;
 using System.Threading.Tasks;
 using Proverb.Extensions;
@@ -97,7 +96,7 @@ namespace Proverb.Models
             EnsureTempDirExists();
             string path = _fileSystem.Path.Combine(_tempDirPath, "Proverb_preview.html");
             string result = await exporter.Export(Document, path);
-            Process.Start(result);
+            ProcessEx.Start(path);
 
             return result;
         }
