@@ -12,9 +12,35 @@ using Proverb.ViewModels;
 
 namespace Proverb
 {
-    public class AppBootstrapper : Bootstrapper<ShellViewModel>
+    public class AppBootstrapper : Bootstrapper<ShellViewModel>, IDisposable
     {
+        private bool _disposed;
+
         private IKernel _kernel;
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        ~AppBootstrapper()
+        {
+            Dispose(false);
+        }
+
+        private void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing && _kernel != null && !_kernel.IsDisposed)
+                {
+                    _kernel.Dispose();
+                }
+            }
+
+            _disposed = true;
+        }
 
         protected override void OnExit(object sender, EventArgs e)
         {
