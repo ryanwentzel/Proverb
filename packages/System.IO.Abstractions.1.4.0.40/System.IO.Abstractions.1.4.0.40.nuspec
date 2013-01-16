@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>System.IO.Abstractions</id>
-    <version>1.4.0.37</version>
+    <version>1.4.0.40</version>
     <authors>Tatham Oddie</authors>
     <owners>Tatham Oddie</owners>
     <licenseUrl>https://github.com/tathamoddie/System.IO.Abstractions/blob/master/License.txt</licenseUrl>
@@ -10,5 +10,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Just like System.Web.Abstractions, but for System.IO. Yay for testable IO access! Be sure to check out the System.IO.Abstractions.TestingHelpers package too.</description>
     <tags>testing</tags>
+    <references>
+      <reference file="System.IO.Abstractions.dll" />
+    </references>
   </metadata>
 </package>
