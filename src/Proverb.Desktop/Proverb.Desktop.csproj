@@ -53,9 +53,6 @@
     <Reference Include="MahApps.Metro">
       <HintPath>..\..\packages\MahApps.Metro.0.10.0.0\lib\net40\MahApps.Metro.dll</HintPath>
     </Reference>
-    <Reference Include="MarkdownSharp">
-      <HintPath>..\..\packages\MarkdownSharp.1.13.0.0\lib\35\MarkdownSharp.dll</HintPath>
-    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
@@ -114,7 +111,6 @@
     <Compile Include="Infrastructure\FileWriterFactory.cs" />
     <Compile Include="Infrastructure\HtmlExporter.cs" />
     <Compile Include="Infrastructure\ProcessEx.cs" />
-    <Compile Include="Infrastructure\DocumentParser.cs" />
     <Compile Include="Infrastructure\IDialogService.cs" />
     <Compile Include="Infrastructure\IFileReaderFactory.cs" />
     <Compile Include="Infrastructure\IFileWriterFactory.cs" />

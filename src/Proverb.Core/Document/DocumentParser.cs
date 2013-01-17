@@ -1,8 +1,7 @@
 ﻿using MarkdownSharp;
-using Proverb.Document;
 using RazorEngine;
 
-namespace Proverb.Infrastructure
+namespace Proverb.Document
 {
     public sealed class DocumentParser : IDocumentParser
     {
