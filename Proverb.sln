@@ -5,6 +5,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proverb.Desktop", "src\Prov
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proverb.Tests.Desktop", "src\Proverb.Tests.Desktop\Proverb.Tests.Desktop.csproj", "{507F5454-BC6D-4133-A7AA-B765B25EC438}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{9AA3E7C7-72F0-4C66-AF49-156FD2E2614F}"
+	ProjectSection(SolutionItems) = preProject
+		src\AssemblyVersionInfo.cs = src\AssemblyVersionInfo.cs
+		src\SharedAssemblyInfo.cs = src\SharedAssemblyInfo.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
