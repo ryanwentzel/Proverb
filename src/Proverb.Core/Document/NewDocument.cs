@@ -1,5 +1,5 @@
 ﻿
-namespace Proverb.Models
+namespace Proverb.Document
 {
     public class NewDocument : IDocument
     {

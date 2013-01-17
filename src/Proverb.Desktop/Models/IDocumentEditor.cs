@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Proverb.Document;
 using Proverb.Infrastructure;
 
 namespace Proverb.Models

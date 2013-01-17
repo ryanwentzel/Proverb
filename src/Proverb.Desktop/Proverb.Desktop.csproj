@@ -106,8 +106,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Constants.cs" />
-    <Compile Include="Ensure.cs" />
-    <Compile Include="Extensions\TaskExtensions.cs" />
     <Compile Include="Infrastructure\ApplicationInfo.cs" />
     <Compile Include="Infrastructure\DialogService.cs" />
     <Compile Include="Infrastructure\HtmlTemplate.cs" />
@@ -116,24 +114,17 @@
     <Compile Include="Infrastructure\FileWriterFactory.cs" />
     <Compile Include="Infrastructure\HtmlExporter.cs" />
     <Compile Include="Infrastructure\ProcessEx.cs" />
-    <Compile Include="Infrastructure\RazorHtmlTemplateParser.cs" />
+    <Compile Include="Infrastructure\DocumentParser.cs" />
     <Compile Include="Infrastructure\IDialogService.cs" />
-    <Compile Include="Infrastructure\IExporter.cs" />
     <Compile Include="Infrastructure\IFileReaderFactory.cs" />
     <Compile Include="Infrastructure\IFileWriterFactory.cs" />
-    <Compile Include="Infrastructure\IHtmlTemplate.cs" />
-    <Compile Include="Infrastructure\IHtmlTemplateParser.cs" />
     <Compile Include="Infrastructure\InfrastructureModule.cs" />
     <Compile Include="Infrastructure\IApplicationInfo.cs" />
     <Compile Include="Helpers\Text.cs" />
-    <Compile Include="Models\Document.cs" />
     <Compile Include="Models\DocumentEditor.cs" />
     <Compile Include="Models\DocumentFactory.cs" />
-    <Compile Include="Models\IDocument.cs" />
     <Compile Include="Models\IDocumentEditor.cs" />
-    <Compile Include="Models\IDocumentFactory.cs" />
     <Compile Include="Models\ModelsModule.cs" />
-    <Compile Include="Models\NewDocument.cs" />
     <Compile Include="ViewModels\DocumentEditorViewModel.cs" />
     <Compile Include="ViewModels\DocumentViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
@@ -188,6 +179,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="app_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Proverb.Core\Proverb.Core.csproj">
+      <Project>{92c30579-3af5-4ca7-9183-7c2242f736ff}</Project>
+      <Name>Proverb.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

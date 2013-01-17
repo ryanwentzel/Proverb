@@ -1,6 +1,6 @@
 ﻿using Caliburn.Micro;
 using ICSharpCode.AvalonEdit.Document;
-using Proverb.Infrastructure;
+using Proverb.Document;
 using Proverb.Models;
 
 namespace Proverb.ViewModels

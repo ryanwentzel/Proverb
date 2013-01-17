@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
-using Proverb.Models;
 
-namespace Proverb.Infrastructure
+namespace Proverb.Document
 {
     public interface IExporter
     {

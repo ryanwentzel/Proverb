@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Ninject.Modules;
+using Proverb.Document;
 using RazorEngine;
 using RazorEngine.Configuration;
 using RazorEngine.Templating;
@@ -14,8 +15,8 @@ namespace Proverb.Infrastructure
             Bind<IDialogService>().To<DialogService>().InSingletonScope();
             Bind<IFileWriterFactory>().To<FileWriterFactory>().InSingletonScope();
             Bind<IFileReaderFactory>().To<FileReaderFactory>().InSingletonScope();
-            Bind<IHtmlTemplate>().ToMethod(context => HtmlTemplate.FromResource(Constants.TemplateFileName)).InSingletonScope();
-            Bind<IHtmlTemplateParser>().To<RazorHtmlTemplateParser>().InSingletonScope();
+            Bind<Proverb.Document.ITemplate>().ToMethod(context => HtmlTemplate.FromResource(Constants.TemplateFileName)).InSingletonScope();
+            Bind<IDocumentParser>().To<DocumentParser>().InSingletonScope();
             Bind<IExporter>().To<HtmlExporter>().InSingletonScope();
 
             ConfigureRazorEngine();

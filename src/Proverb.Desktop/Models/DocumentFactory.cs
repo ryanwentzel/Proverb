@@ -1,5 +1,6 @@
 ﻿
 using System.Threading.Tasks;
+using Proverb.Document;
 using Proverb.Extensions;
 using Proverb.Infrastructure;
 
@@ -22,6 +23,11 @@ namespace Proverb.Models
         public IDocument NewDocument()
         {
             return new NewDocument();
+        }
+
+        public IDocument NewDocument(string content)
+        {
+            return new NewDocument() { Content = content };
         }
 
         public async Task<IDocument> NewDocument(string path, string content)

@@ -85,6 +85,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Proverb.Core\Proverb.Core.csproj">
+      <Project>{92c30579-3af5-4ca7-9183-7c2242f736ff}</Project>
+      <Name>Proverb.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Proverb.Desktop\Proverb.Desktop.csproj">
       <Project>{631e3cda-63e6-48f5-bf77-cd101ac69fbc}</Project>
       <Name>Proverb.Desktop</Name>

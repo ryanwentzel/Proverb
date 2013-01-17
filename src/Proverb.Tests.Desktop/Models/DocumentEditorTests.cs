@@ -2,6 +2,7 @@
 using System.IO.Abstractions;
 using System.IO.Abstractions.TestingHelpers;
 using Moq;
+using Proverb.Document;
 using Proverb.Infrastructure;
 using Xunit;
 

@@ -1,4 +1,5 @@
 ﻿using Ninject.Modules;
+using Proverb.Document;
 
 namespace Proverb.Models
 {

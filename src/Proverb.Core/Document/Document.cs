@@ -1,4 +1,5 @@
 ﻿
+using Proverb.Document;
 namespace Proverb.Models
 {
     public class Document : IDocument

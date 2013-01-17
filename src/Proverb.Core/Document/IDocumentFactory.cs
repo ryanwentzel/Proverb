@@ -1,10 +1,13 @@
 ﻿
 using System.Threading.Tasks;
-namespace Proverb.Models
+
+namespace Proverb.Document
 {
     public interface IDocumentFactory
     {
         IDocument NewDocument();
+
+        IDocument NewDocument(string content);
 
         Task<IDocument> NewDocument(string path, string content);
 

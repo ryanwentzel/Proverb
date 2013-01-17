@@ -1,17 +1,18 @@
 ﻿
 using System.IO;
 using System.Reflection;
+using Proverb.Document;
 namespace Proverb.Infrastructure
 {
-    public sealed class HtmlTemplate : IHtmlTemplate
+    public sealed class HtmlTemplate : ITemplate
     {
-        public string Html { get; private set; }
+        public string Content { get; private set; }
 
         public HtmlTemplate(string html)
         {
             Ensure.ArgumentNotNullOrEmpty(html, "html");
 
-            Html = html;
+            Content = html;
         }
 
         public static HtmlTemplate FromResource(string resourceName)

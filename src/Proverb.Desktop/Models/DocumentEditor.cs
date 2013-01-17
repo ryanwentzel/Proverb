@@ -1,6 +1,7 @@
 ﻿using System.IO.Abstractions;
 using System.Linq;
 using System.Threading.Tasks;
+using Proverb.Document;
 using Proverb.Extensions;
 using Proverb.Infrastructure;
 
