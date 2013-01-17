@@ -13,7 +13,6 @@ namespace Proverb.Infrastructure
             Bind<IFileWriterFactory>().To<FileWriterFactory>().InSingletonScope();
             Bind<IFileReaderFactory>().To<FileReaderFactory>().InSingletonScope();
             Bind<Proverb.Document.ITemplate>().ToMethod(context => HtmlTemplate.FromResource(Constants.TemplateFileName)).InSingletonScope();
-            Bind<IDocumentParser>().To<DocumentParser>().InSingletonScope();
             Bind<IExporter>().To<HtmlExporter>().InSingletonScope();
 
             RegisterProcessFactory();

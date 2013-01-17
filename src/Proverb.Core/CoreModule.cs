@@ -1,4 +1,5 @@
 ﻿using Ninject.Modules;
+using Proverb.Document;
 using RazorEngine;
 using RazorEngine.Configuration;
 using RazorEngine.Templating;
@@ -9,6 +10,8 @@ namespace Proverb
     {
         public override void Load()
         {
+            Bind<IDocumentParser>().To<DocumentParser>().InSingletonScope();
+
             ConfigureRazorEngine();
         }
 
