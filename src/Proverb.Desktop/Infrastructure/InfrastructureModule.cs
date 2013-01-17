@@ -1,9 +1,6 @@
 ﻿using System.Diagnostics;
 using Ninject.Modules;
 using Proverb.Document;
-using RazorEngine;
-using RazorEngine.Configuration;
-using RazorEngine.Templating;
 
 namespace Proverb.Infrastructure
 {
@@ -19,15 +16,7 @@ namespace Proverb.Infrastructure
             Bind<IDocumentParser>().To<DocumentParser>().InSingletonScope();
             Bind<IExporter>().To<HtmlExporter>().InSingletonScope();
 
-            ConfigureRazorEngine();
             RegisterProcessFactory();
-        }
-
-        private void ConfigureRazorEngine()
-        {
-            var config = new FluentTemplateServiceConfiguration(c => c.WithEncoding(RazorEngine.Encoding.Raw));
-            var templateService = new TemplateService(config);
-            Razor.SetTemplateService(templateService);
         }
 
         private void RegisterProcessFactory()

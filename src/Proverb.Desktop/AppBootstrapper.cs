@@ -57,6 +57,7 @@ namespace Proverb
 
             // Other parts of the application configure bindings in modules.
             _kernel.Load(Assembly.GetExecutingAssembly());
+            _kernel.Load("Proverb.*.dll");
         }
 
         protected override object GetInstance(Type service, string key)
