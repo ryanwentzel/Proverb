@@ -59,14 +59,24 @@ namespace Proverb.Models
 
             if (string.IsNullOrEmpty(path)) return await Task.FromResult(Document);
 
-            Document = await _documentFactory.NewDocument(path, Document.Content);
-            return Document;
+            return await _documentFactory.NewDocument(path, Document.Content).ContinueWith(t => 
+            {
+                t.PropagateExceptions();
+                Document = t.Result;
+
+                return Document;
+            });
         }
 
         public async Task<IDocument> New()
         {
-            Document = await Task.FromResult(_documentFactory.NewDocument());
-            return Document;
+            return await Task.FromResult(_documentFactory.NewDocument()).ContinueWith(t => 
+            {
+                t.PropagateExceptions();
+                Document = t.Result;
+
+                return Document;
+            });
         }
 
         public async Task<IDocument> Open()
@@ -75,8 +85,13 @@ namespace Proverb.Models
 
             if (string.IsNullOrEmpty(path)) return await Task.FromResult(Document);
 
-            Document = await _documentFactory.OpenDocument(path);
-            return Document;
+            return await _documentFactory.OpenDocument(path).ContinueWith(t => 
+            {
+                t.PropagateExceptions();
+                Document = t.Result;
+
+                return Document;
+            });
         }
 
         public async Task<string> Export(IExporter exporter)
@@ -86,8 +101,7 @@ namespace Proverb.Models
             var path = _dialogService.GetFileSavePath("Export", FileExtensions.Html.First(), FileExtensions.HtmlFilter);
             if (string.IsNullOrEmpty(path)) return await Task.FromResult("");
 
-            string result = await exporter.Export(Document, path);
-            return result;
+            return await exporter.Export(Document, path);
         }
 
         public async Task<string> Preview(IExporter exporter)
@@ -96,10 +110,13 @@ namespace Proverb.Models
 
             EnsureTempDirExists();
             string path = _fileSystem.Path.Combine(_tempDirPath, "Proverb_preview.html");
-            string result = await exporter.Export(Document, path);
-            ProcessEx.Start(path);
+            return await exporter.Export(Document, path).ContinueWith(t => 
+            {
+                t.PropagateExceptions();
+                ProcessEx.Start(t.Result);
 
-            return result;
+                return t.Result;
+            });
         }
 
         private void EnsureTempDirExists()
